@@ -9,4 +9,9 @@ public class CollisionSystem : MonoBehaviour
     {
         Debug.Log("destroyed");
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(gameObject.name + " destroyed");
+    }
 }
