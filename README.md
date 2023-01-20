@@ -10,4 +10,6 @@ Czas wykonania projektu ok. 8h
 
 Cele zrealizowane w 100%
 
+Zdecydowałem się na Spawn pool zamiast tworzenia Wrogów ad hoc za względu na oszczędność zasobów
+
 
