@@ -8,6 +8,7 @@ public class Lives : MonoBehaviour
     public event Action onLivesChanged;
     [SerializeField] int lives = 5;
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Die();

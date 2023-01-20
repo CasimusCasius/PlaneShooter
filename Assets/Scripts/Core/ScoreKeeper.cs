@@ -10,7 +10,7 @@ public class ScoreKeeper : MonoBehaviour,ISaveable
     public event Action onScoreChange;
     public static ScoreKeeper Instance;
 
-    [SerializeField]int score = 0;
+    [SerializeField]static int score = 0;
     static int highScore;
     SavingWrapper savingWrapper;
 
@@ -51,6 +51,11 @@ public class ScoreKeeper : MonoBehaviour,ISaveable
 
     public int GetScore() { return score; }
     public int GetHighScore() { return highScore; }
+
+    public void ResetScore()
+    {
+        score = 0;
+    }
 
     public object CaptureState()
     {
