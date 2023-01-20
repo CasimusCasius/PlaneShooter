@@ -1,13 +1,18 @@
+using Saving;
+using SceneManagment;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreKeeper : MonoBehaviour
+public class ScoreKeeper : MonoBehaviour,ISaveable
 {
-    public static ScoreKeeper Instance { get; private set; }
+    public event Action onScoreChange;
+    public static ScoreKeeper Instance;
 
     [SerializeField]int score = 0;
     static int highScore;
+    SavingWrapper savingWrapper;
 
     private void Awake()
     {
@@ -18,13 +23,42 @@ public class ScoreKeeper : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+       
+       
+    }
+    private void Start()
+    {
+        savingWrapper = FindObjectOfType<SavingWrapper>();
+        onScoreChange?.Invoke();
     }
 
     public void AddScore(int points)
     {
         score += points;
+        CheckHighScore();
+        onScoreChange?.Invoke();
+
     }
 
+    private void CheckHighScore()
+    {
+        if (score >= highScore)
+        {
+            highScore = score;
+            savingWrapper.Save();
+        }
+    }
 
+    public int GetScore() { return score; }
+    public int GetHighScore() { return highScore; }
+
+    public object CaptureState()
+    {
+        return highScore;
+    }
+
+    public void RestoreState(object state)
+    {
+        highScore = (int)state;
+    }
 }

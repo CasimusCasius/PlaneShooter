@@ -1,18 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event Action onLivesChanged;
+    [SerializeField] int lives = 5;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Die();
+    }
+    public int GetLives() => lives;
+
+    private void Die()
+    {
+        lives--;
+        onLivesChanged?.Invoke();
+
+        if (lives<=0)
+        {
+            {
+                SceneMenagement.Instance.LoadNextScene();
+            }
+        }
     }
 }

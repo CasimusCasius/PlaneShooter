@@ -1,4 +1,4 @@
-﻿namespace Libraries.Saving
+﻿namespace Saving
 {
     public interface ISaveable
     {

@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Libraries.Saving
+namespace Saving
 {
     public class SavingSystem : MonoBehaviour
     {
