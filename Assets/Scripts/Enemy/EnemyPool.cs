@@ -50,12 +50,12 @@ public class EnemyPool : MonoBehaviour
 
         for (int i = numberOfSpawnedEnemies; i >= 0; i--)
         {
-            Debug.Log(i);
+            
             foreach (var enemy in enemies)
             {
                 if (!enemy.gameObject.activeSelf)
                 {
-                    Debug.Log("Spawning");
+                    
                     enemy.gameObject.SetActive(true);
                     PlaceEnemy(enemy);
 
