@@ -8,4 +8,6 @@ Standardowe pluginy wersji 2021.3.15 + TextMeshPro
 
 Czas wykonania projektu ok. 8h
 
-Do dopisania Punkty na ekranie startowym
+Cele zrealizowane w 100%
+
+
